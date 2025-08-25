@@ -24,9 +24,6 @@ jobs:
         
       - name: Run tests
         run: bun test
-        
-      - name: Run test vectors
-        run: bun run test:vectors
 
   build:
     name: Build Binaries

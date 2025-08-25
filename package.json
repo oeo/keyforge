@@ -13,7 +13,6 @@
     "start": "bun src/cli/index.ts",
     "test": "bun test",
     "test:watch": "bun test --watch",
-    "test:vectors": "bun test tests/vectors.test.ts",
     "clean": "rm -rf ~/.keyforge/session",
     "install:global": "bun link",
     "build": "bun run scripts/build.ts",
