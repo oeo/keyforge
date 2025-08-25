@@ -45,7 +45,7 @@ Keyforge generates all your cryptographic keys, passwords, and 2FA codes from a 
 curl -fsSL https://bun.sh/install | bash
 
 # Clone and install Keyforge
-git clone https://github.com/keyforge/keyforge
+git clone https://github.com/oeo/keyforge
 cd keyforge
 bun install
 bun link
@@ -60,7 +60,7 @@ keyforge --version
 curl -fsSL https://install.keyforge.io | bash
 
 # Or download binary from releases
-# https://github.com/keyforge/keyforge/releases
+# https://github.com/oeo/keyforge/releases
 ```
 
 ## Quick Start
