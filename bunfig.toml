@@ -1,0 +1,17 @@
+[test]
+root = "./tests"
+coverage = true
+coverageThreshold = 0.8
+
+[install]
+# Production dependencies only
+production = false
+
+[run]
+# Don't clear terminal on file changes
+clear = false
+
+# Bun-specific settings
+[bun]
+# Use Bun's native implementations
+preferBun = true

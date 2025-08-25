@@ -1,0 +1,54 @@
+{
+  "name": "keyforge",
+  "version": "1.0.0",
+  "description": "Deterministic key derivation and encrypted vault system",
+  "type": "module",
+  "main": "src/cli/index.ts",
+  "bin": {
+    "keyforge": "src/cli/index.ts",
+    "kf": "src/cli/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/cli/index.ts",
+    "start": "bun src/cli/index.ts",
+    "test": "bun test",
+    "test:watch": "bun test --watch",
+    "test:vectors": "bun test tests/vectors.test.ts",
+    "clean": "rm -rf ~/.keyforge/session",
+    "install:global": "bun link",
+    "build": "bun run scripts/build.ts",
+    "build:dev": "bun run scripts/build.ts dev",
+    "build:release": "bun run scripts/build.ts release",
+    "build:clean": "bun run scripts/build.ts clean"
+  },
+  "dependencies": {
+    "@bundlr-network/client": "^0.11.17",
+    "@noble/ciphers": "^1.3.0",
+    "@noble/curves": "^1.3.0",
+    "@noble/hashes": "^1.3.3",
+    "@scure/bip32": "^1.3.3",
+    "@scure/bip39": "^1.2.1",
+    "arweave": "^1.15.7",
+    "chalk": "^5.6.0",
+    "clipboardy": "^4.0.0",
+    "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.20"
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
+  "keywords": [
+    "cryptography",
+    "deterministic",
+    "keys",
+    "bitcoin",
+    "vault",
+    "password-manager",
+    "privacy",
+    "security"
+  ],
+  "author": "Keyforge Contributors",
+  "license": "MIT"
+}

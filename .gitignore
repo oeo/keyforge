@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+bun.lockb
+
+# Development files
+CLAUDE.md
+plan.md
+
+# Keyforge runtime files
+.keyforge/
+keyforge-export*
+*.vault
+*.enc
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Test artifacts
+coverage/
+.nyc_output/
+
+# Build artifacts (if any)
+dist/

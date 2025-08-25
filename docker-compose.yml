@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  # Development environment
+  keyforge-dev:
+    build:
+      context: .
+      target: base
+    volumes:
+      - .:/app
+      - keyforge-data:/home/keyforge/.keyforge
+    working_dir: /app
+    environment:
+      - NODE_ENV=development
+    command: bun run dev
+    ports:
+      - "3000:3000"  # If adding web interface later
+
+  # Build environment for creating binaries
+  keyforge-build:
+    build:
+      context: .
+      target: builder
+    volumes:
+      - ./dist:/app/dist
+    command: bun run build
+    profiles:
+      - build
+
+  # Runtime container with built binary
+  keyforge:
+    build:
+      context: .
+      target: runtime
+    volumes:
+      - keyforge-data:/home/keyforge/.keyforge
+    environment:
+      - NODE_ENV=production
+    profiles:
+      - production
+
+  # Test runner
+  keyforge-test:
+    build:
+      context: .
+      target: base
+    volumes:
+      - .:/app
+    command: bun test
+    profiles:
+      - test
+
+volumes:
+  keyforge-data:
+    driver: local
