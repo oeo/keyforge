@@ -326,7 +326,7 @@ Keys are derived using domain separation to prevent correlation:
 - Strong random password generation
 
 ### Implementation Status
-✅ **Production Ready**: 
+**Production Ready**: 
 - Core deterministic key derivation system
 - SSH key generation (Ed25519, OpenSSH format)
 - GPG key generation (Ed25519, OpenPGP format)
@@ -340,13 +340,16 @@ Keys are derived using domain separation to prevent correlation:
 - Comprehensive test suite (144+ tests)
 - Build system for standalone binaries
 
-🚧 **Future Enhancements**: 
-- Arweave permanent storage with Bitcoin payment
-- Nostr backup system for redundancy
-- Tor integration for privacy
-- GPG key generation
-- Shamir secret sharing for recovery
-- Advanced security features (dead man's switch, panic mode)
+**Planned Features**: 
+- **Arweave Storage**: Permanent vault storage on Arweave blockchain
+  - Dynamic pricing with real-time cost calculation
+  - Bitcoin/Lightning payment integration via Bundlr
+  - Automatic funding with payment address generation
+  - Cost estimates: ~$0.01-0.05 for typical vault sizes
+  - Version history and recovery from transaction IDs
+- **Nostr Backup**: Distributed backup system across Nostr relays
+- **Tor Integration**: Anonymous operations with circuit management
+- **Advanced Security**: Shamir secret sharing, dead man's switch, panic mode
 
 ## Development
 
@@ -416,6 +419,35 @@ keyforge/
 - **Vault Operations**: <10ms for most operations  
 - **Master Derivation**: ~2 seconds (intentionally slow for security)
 - **Memory Usage**: <50MB typical, <100MB peak
+
+## Arweave Integration (Planned)
+
+Keyforge will integrate with Arweave for permanent, decentralized vault storage using the following architecture:
+
+### Dynamic Pricing System
+- **Real-time Cost Calculation**: Query Arweave network for current storage prices
+- **Size-based Estimates**: Calculate exact costs based on encrypted vault size
+- **Price Monitoring**: Track pricing trends and suggest optimal upload times
+- **Multi-currency Support**: Accept Bitcoin and Lightning payments via Bundlr
+
+### Bundlr Integration
+- **Seamless Payments**: Automatic Bitcoin address generation for funding
+- **Lightning Support**: Instant payments for small vault updates
+- **Balance Management**: Track funding levels and auto-notify for top-ups
+- **Transaction Batching**: Optimize costs by batching multiple operations
+
+### Implementation Plan
+1. **Phase 1**: Basic Arweave upload/download with manual Bitcoin funding
+2. **Phase 2**: Dynamic pricing with real-time cost estimates  
+3. **Phase 3**: Lightning integration for instant micro-payments
+4. **Phase 4**: Smart funding with automatic balance management
+
+### Technical Requirements
+- Tight integration with Arweave GraphQL API for pricing
+- Bundlr Node.js client for payment processing
+- Bitcoin wallet integration for funding addresses
+- Error handling for network failures and payment issues
+- Version management and conflict resolution
 
 ## FAQ
 
